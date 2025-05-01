@@ -15,7 +15,6 @@ video_routes = Blueprint("video_routes", __name__)
 UPLOAD_FOLDER = "uploads"
 PROCESSED_FOLDER = "processed"
 MODEL_PATH = "models/xgb_price_predict_model.pkl"
-CLASSIFICATION_MODEL_PATH = "models/videoModel.joblib"
 ENCODED_FEATURES_PATH = "encoded_features.json"
 TRAINING_DATA_PATH = "datafile/updated_encoded.csv"
 
