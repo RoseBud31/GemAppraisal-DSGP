@@ -16,3 +16,4 @@ tensorflow
 imbalanced-learn
 matplotlib
 imblearn
+gunicorn
