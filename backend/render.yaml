@@ -9,7 +9,7 @@ services:
     autoDeploy: true
     envVars:
       - key: PORT
-        value: 10000
+        value: 5000
       - key: SUPABASE_URL
         sync: false
       - key: SUPABASE_KEY

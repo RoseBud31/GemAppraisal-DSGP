@@ -7,6 +7,7 @@ from ClassifyModel import image_routes
 import os
 
 app = Flask(__name__)
+print("App created")
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Register Blueprints
@@ -18,4 +19,4 @@ app.register_blueprint(image_routes,url_prefix="/image")
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port, debug=True)
+    app.run(host="0.0.0.0", port=port)
