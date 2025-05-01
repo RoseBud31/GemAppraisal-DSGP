@@ -25,7 +25,7 @@ os.makedirs(PROCESSED_FOLDER, exist_ok=True)
 
 # Load the models
 price_model = joblib.load(MODEL_PATH)
-classification_model = joblib.load(CLASSIFICATION_MODEL_PATH)
+
 training_data = pd.read_csv(TRAINING_DATA_PATH)
 
 # Extract target column names (from index 1 to 92, representing B to CN)
