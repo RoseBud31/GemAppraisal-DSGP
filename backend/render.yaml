@@ -8,9 +8,9 @@ services:
     startCommand: gunicorn main:app --bind 0.0.0.0:$PORT
     autoDeploy: true
     envVars:
+      - key: PORT
+        value: 10000
       - key: SUPABASE_URL
         sync: false
       - key: SUPABASE_KEY
-        sync: false
-      - key: ANY_OTHER_SECRET
         sync: false
