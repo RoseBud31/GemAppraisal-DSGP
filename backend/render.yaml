@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: itsaphyre-backend
+    env: python
+    plan: free
+    region: oregon  # or frankfurt, singapore, etc.
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn main:app  # change to match your app's filename
+    autoDeploy: true
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+      - key: ANY_OTHER_SECRET
+        sync: false

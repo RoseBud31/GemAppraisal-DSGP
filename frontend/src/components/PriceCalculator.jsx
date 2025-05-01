@@ -11,6 +11,10 @@ import Loader from "./Loader.jsx";
 import LoaderInfo from "./LoaderInfo.jsx";
 import LoaderRound from "./LoaderRound.jsx";
 
+// api for backend
+const API_URL = import.meta.env.VITE_BACKEND_URL || "http://127.0.0.1:5000";
+
+
 // Dropdown component
 function Dropdown({ label, name, options, value, onChange }) {
   return (
@@ -173,7 +177,7 @@ const PriceCalculator = () => {
     console.log("Uploading file:", file.file);
   
     try {
-        const response = await axios.post("http://127.0.0.1:5000/classify", formData, {
+        const response = await axios.post(`${API_URL}/classify`, formData, {
             headers: { "Content-Type": "multipart/form-data" },
         });
   
@@ -233,7 +237,7 @@ const PriceCalculator = () => {
 
       try {
           // Send video file to backend
-          const response = await axios.post("http://127.0.0.1:5000/video/upload_video", formData, {
+          const response = await axios.post(`${API_URL}/video/upload_video`, formData, {
               headers: { "Content-Type": "multipart/form-data" },
           });
 
@@ -307,7 +311,7 @@ const PriceCalculator = () => {
       if (file) formData.append("file", file.file);
 
       try {
-        const response = await axios.post("http://127.0.0.1:5000/picture/upload_image", formData, {
+        const response = await axios.post(`${API_URL}/picture/upload_image`, formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
 
@@ -362,7 +366,7 @@ const PriceCalculator = () => {
   
     try {
       // First, send the file for classification (Classify pipeline)
-      const classifyResponse = await axios.post("http://127.0.0.1:5000/image/classify", formData, {
+      const classifyResponse = await axios.post(`${API_URL}/image/classify`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
   
@@ -393,7 +397,7 @@ const PriceCalculator = () => {
       // use something else to display probability setPrediction({ predicted_class, probabilities });
   
       // Then, get more information about the image (Upload Image pipeline)
-      const uploadImageResponse = await axios.post("http://127.0.0.1:5000/picture/upload_image", formData, {
+      const uploadImageResponse = await axios.post(`${API_URL}/picture/upload_image`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
   
@@ -455,7 +459,7 @@ const PriceCalculator = () => {
           formData.append("user_id", user.id); 
 
           // Send filled form data for price prediction
-          const response = await axios.post("http://127.0.0.1:5000/predict", formData, {
+          const response = await axios.post(`${API_URL}/predict`, formData, {
               headers: { "Content-Type": "multipart/form-data" },
           });
 

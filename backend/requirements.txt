@@ -1,7 +1,7 @@
 python-dotenv
 flask 
 flask_cors 
-joblibp
+joblib
 supabase
 pandas
 numpy 
