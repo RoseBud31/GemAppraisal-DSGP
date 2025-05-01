@@ -4,6 +4,7 @@ from videoModel import video_routes
 from pricePrediction import prediction_routes
 from pictureModel import picture_routes
 from ClassifyModel import image_routes
+import os
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -16,4 +17,5 @@ app.register_blueprint(image_routes,url_prefix="/image")
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
