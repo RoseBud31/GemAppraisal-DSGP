@@ -5,7 +5,7 @@ services:
     plan: free
     region: oregon  # or frankfurt, singapore, etc.
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn main:app
+    startCommand: gunicorn main:app --bind 0.0.0.0:$PORT
     autoDeploy: true
     envVars:
       - key: SUPABASE_URL
